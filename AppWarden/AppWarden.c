@@ -1,6 +1,11 @@
-#include <stdio.h>  //printf()
-#include <unistd.h> //getOpt()
+#include <stdio.h>
+#include <unistd.h>
+#include <dirent.h>
+#include <errno.h>
+#include <string.h>
 #define VERSION "0.0.1\n"
+
+
 
 int main(int argc, char **argv)
 {
@@ -16,5 +21,13 @@ int main(int argc, char **argv)
             break;
         }
     }
+    const char* procFd = "/proc";
+    DIR* pDir;
+    if ((pDir = opendir(procFd)) == NULL)
+    {
+        printf("%s\n", strerror(errno));
+        return errno;
+    }
+
     return 0;
 }
