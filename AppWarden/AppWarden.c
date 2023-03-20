@@ -21,9 +21,9 @@ int main(int argc, char **argv)
             break;
         }
     }
-    const char* procFd = "/proc";
-    DIR* pDir;
-    if ((pDir = opendir(procFd)) == NULL)
+    const char* sysProcFd = "/proc";
+    DIR* pSysProcFd;
+    if ((pSysProcFd = opendir(sysProcFd)) == NULL)
     {
         printf("%s\n", strerror(errno));
         return errno;
