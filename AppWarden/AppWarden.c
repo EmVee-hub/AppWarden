@@ -3,9 +3,8 @@
 #include <dirent.h>
 #include <errno.h>
 #include <string.h>
+#include <procMan/procMan.h>
 #define VERSION "0.0.1\n"
-
-
 
 int main(int argc, char **argv)
 {
@@ -28,6 +27,5 @@ int main(int argc, char **argv)
         printf("%s\n", strerror(errno));
         return errno;
     }
-
     return 0;
 }
